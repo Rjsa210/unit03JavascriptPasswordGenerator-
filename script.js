@@ -12,6 +12,7 @@ var lowerCase;
 var upperCase;
 var numerals;
 var specialChars;
+var charSet;
 
 function writePassword() {
   var password = generatePassword();
@@ -21,6 +22,23 @@ function writePassword() {
 
 }
 
+
+var generatePassword = function() {
+  charSet = [];
+  if (lowerCase === true) {
+    charSet.push("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+  }
+  if (upperCase === true) {
+    charSet.push ("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+  }
+  if (numerals === true) {
+    charSet.push("0","1","2","3","4","5","6","7","8","9");
+  }
+  if (specialChars === true) {
+    charSet.push("~","!","@","#","$","%","^","&","*","(",")","_","+","-","=","`","\\",",","|","{","}","[","]","\.","\,","<",">","?");
+  }
+  console.log(charSet);
+  }
 //Prompt user for password criteria
 
 // prompt for character length 
@@ -46,13 +64,17 @@ var typeConfirm = function () {
   if (!lowerCase && !upperCase && !numerals && !specialChars) {
     alert("You must choose at least one character type.");
     return;
-  } else {
+  } else {//input repeated on confirm menu
     confirm("You have selected - Password Length: " + charLength + " Lowercase Letters: " + lowerCase + " Uppercase Letters: " + upperCase + " Numerals: " + numerals + " Special Characters: " + specialChars + " ...Are you ready to generate?");
   }
-}
-//input repeated on confirm menu
+  generatePassword();
+  }
+
+
 
 //password generated to text
+//define what characters to use based on if statement
+
 
 
 // Add event listener to generate button
